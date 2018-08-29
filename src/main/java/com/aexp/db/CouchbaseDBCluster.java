@@ -9,7 +9,7 @@ public class CouchbaseDBCluster {
 
 	public CouchbaseDBCluster(){
 		env = new CouchbaseEnvironment();
-		cluster = CouchbaseCluster.create(env.getEnv(), "lpdcbe01a.phx.aexp.com","lpdcbe01b.phx.aexp.com","lpdcbe01c.phx.aexp.com");
+		cluster = CouchbaseCluster.create(env.getEnv(), "127.0.0.1");
 	}
 
 	public  CouchbaseCluster getCluster() {
