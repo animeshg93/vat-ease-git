@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file indicates that our webapp uses a security domain defined in 
+	the JBoss config file standalone.xml -->
+<jboss-web>
+	<context-root>/</context-root>
+</jboss-web>
