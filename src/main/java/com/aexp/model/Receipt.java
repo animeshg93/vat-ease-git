@@ -1,4 +1,6 @@
-package com.aexp.parser;
+package com.aexp.model;
+
+import com.aexp.parser.ParserResponse;
 
 public class Receipt implements ParserResponse{
     private String businessName;

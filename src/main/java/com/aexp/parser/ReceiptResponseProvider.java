@@ -1,5 +1,7 @@
 package com.aexp.parser;
 
+import com.aexp.model.Address;
+import com.aexp.model.Receipt;
 
 public class ReceiptResponseProvider {
     public static ParserResponse getResponse(String imageName){

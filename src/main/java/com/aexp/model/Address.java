@@ -1,4 +1,4 @@
-package com.aexp.parser;
+package com.aexp.model;
 
 public class Address {
     private String addLine1;
