@@ -16,6 +16,8 @@ import com.aexp.model.Receipt;
 import com.aexp.parser.ImageParser;
 import com.aexp.parser.ParserResponse;
 import com.aexp.parser.ParserUtil;
+import com.aexp.vat.VATRate;
+import com.aexp.vat.VATValidator;
 import com.couchbase.client.java.document.JsonDocument;
 import com.couchbase.client.java.document.json.JsonObject;
 import com.google.protobuf.ByteString;
@@ -32,7 +34,7 @@ public class VATRestService {
 	@Path("/getVAT")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	public ParserResponse post(Image image) throws IOException{
+	public ParserResponse post(Image image) throws Exception{
 		ImageParser parser = new ImageParser();
 		byte[] decodedImage = null;
 		decodedImage = ParserUtil.decodeBase64(image.getImage());
@@ -45,7 +47,8 @@ public class VATRestService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		VATRate.getVatRate("GB");
+		VATValidator.getVatResponse("GB986366462");
 		return response;
 
 	}

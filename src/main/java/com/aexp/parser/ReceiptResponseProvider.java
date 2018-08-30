@@ -13,6 +13,7 @@ public class ReceiptResponseProvider {
             businessAddress.setAddLine2("Birmingham Great Park");
             businessAddress.setCity("Birmingham");
             businessAddress.setZipCode("B45 9PZ");
+            businessAddress.setCountry("GB");
             receipt.setBusinessAddress(businessAddress);
             receipt.setSubTotalAmt("10.28");
             receipt.setTotalAmt("10.28");
@@ -25,6 +26,7 @@ public class ReceiptResponseProvider {
             businessAddress.setAddLine2("Kings Road Arches 139");
             businessAddress.setCity("Brighton");
             businessAddress.setZipCode("BN1 2FN");
+            businessAddress.setCountry("GB");
             receipt.setBusinessAddress(businessAddress);
             receipt.setSubTotalAmt("49.00");
             receipt.setTotalAmt("53.90");
@@ -38,6 +40,7 @@ public class ReceiptResponseProvider {
             businessAddress.setAddLine2("Brighton, East Sussex");
             businessAddress.setCity("Brighton");
             businessAddress.setZipCode("BN1 1JS");
+            businessAddress.setCountry("GB");
             receipt.setBusinessAddress(businessAddress);
             receipt.setSubTotalAmt("18.20");
             receipt.setTotalAmt("20.02");
@@ -50,6 +53,7 @@ public class ReceiptResponseProvider {
             businessAddress.setAddLine1("100 North Road");
             businessAddress.setCity("Brighton");
             businessAddress.setZipCode("BN1 1YE");
+            businessAddress.setCountry("GB");
             receipt.setBusinessAddress(businessAddress);
             receipt.setSubTotalAmt("24.33");
             receipt.setTotalAmt("29.20");

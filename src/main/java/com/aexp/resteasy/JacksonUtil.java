@@ -9,6 +9,7 @@ public class JacksonUtil {
     private static ObjectMapper mapper = new ObjectMapper();
     public static VATResponse getObjectFromString(String str) throws Exception{
         return  mapper.readValue(str,VATResponse.class);
+
     }
     
     public static String getStringFromObject(Receipt receipt){

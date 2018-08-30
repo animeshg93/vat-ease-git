@@ -34,13 +34,13 @@ public class VATRate {
         while((lineRead = httpResponseReader.readLine()) != null) {
             bfr.append(lineRead);
         }
-
-        return JacksonUtil.getObjectFromString(bfr.toString());
+        System.out.println(bfr.toString());
+        return null;
 
     }
 
     public static void main(String[] args) throws Exception {
-        //VATResponse response = getVatResponse("GB986366462");
+        getVatRate("GB");
     }
 
     private static String getBasicAuthenticationEncoding() {

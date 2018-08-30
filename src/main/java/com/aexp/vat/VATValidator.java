@@ -38,6 +38,7 @@ public class VATValidator {
             bfr.append(lineRead);
         }
 
+        System.out.println(bfr.toString());
         return JacksonUtil.getObjectFromString(bfr.toString());
 
     }
