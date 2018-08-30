@@ -35,10 +35,6 @@ public class RestService {
 		decodedImage = ParserUtil.decodeBase64(image.getImage());
 		Receipt response = null;
 
-		FileOutputStream imageOutFile = new FileOutputStream("C:/Users/agand22/Desktop/convert.jpg");
-		imageOutFile.write(decodedImage);
-		imageOutFile.close();
-
 		ByteString string = ByteString.copyFrom(decodedImage);
 		try {
 			response = (Receipt) parser.parse(string);
