@@ -1,7 +1,7 @@
 package com.aexp.resteasy;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -10,23 +10,26 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.aexp.db.CouchbaseBucket;
 import com.aexp.model.Image;
 import com.aexp.model.Receipt;
 import com.aexp.parser.ImageParser;
 import com.aexp.parser.ParserResponse;
 import com.aexp.parser.ParserUtil;
+import com.couchbase.client.java.document.JsonDocument;
+import com.couchbase.client.java.document.json.JsonObject;
 import com.google.protobuf.ByteString;
 
 @Path("/growth")
-public class RestService {
+public class VATRestService {
 
 	@GET
-	public Response printMessage() {
+	public Response healthCheck() {
 		return Response.status(200).entity("Hello World").build();
 
 	}
 
-	@Path("/insert")
+	@Path("/getVAT")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	public ParserResponse post(Image image) throws IOException{
@@ -45,6 +48,17 @@ public class RestService {
 		
 		return response;
 
+	}
+	
+	@Path("/insert")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response insertInCB(Receipt r) {
+		CouchbaseBucket bucket = new CouchbaseBucket();
+		String obj = JacksonUtil.getStringFromObject(r);
+		JsonObject doc = JsonObject.fromJson(obj);
+		bucket.getBucket().insert(JsonDocument.create(UUID.randomUUID().toString(), doc));
+		return Response.status(200).entity("Document successfully inserted in Couchbase").build();
 	}
 
 }

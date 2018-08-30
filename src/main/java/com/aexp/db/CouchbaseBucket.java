@@ -9,7 +9,7 @@ public class CouchbaseBucket {
 	
 	public CouchbaseBucket(){
 		cluster = new CouchbaseDBCluster();
-		setBucket(cluster.getCluster().openBucket("vat-images", "growth1234"));
+		setBucket(cluster.getCluster().openBucket("vat", "growth1234"));
 	}
 
 	public Bucket getBucket() {
