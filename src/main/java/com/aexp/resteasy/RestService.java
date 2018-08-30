@@ -6,11 +6,14 @@ import java.io.IOException;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.aexp.model.Image;
 import com.aexp.model.Receipt;
 import com.aexp.parser.ImageParser;
+import com.aexp.parser.ParserResponse;
 import com.aexp.parser.ParserUtil;
 import com.google.protobuf.ByteString;
 
@@ -25,7 +28,8 @@ public class RestService {
 
 	@Path("/insert")
 	@POST
-	public Response post(Image image) throws IOException{
+	@Produces(MediaType.APPLICATION_JSON)
+	public ParserResponse post(Image image) throws IOException{
 		ImageParser parser = new ImageParser();
 		byte[] decodedImage = null;
 		decodedImage = ParserUtil.decodeBase64(image.getImage());
@@ -43,7 +47,7 @@ public class RestService {
 			e.printStackTrace();
 		}
 		
-		return Response.status(200).entity("Vat: "+ response.getVatAmt()).build();
+		return response;
 
 	}
 
