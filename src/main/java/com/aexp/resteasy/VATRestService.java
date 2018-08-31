@@ -17,7 +17,7 @@ import com.aexp.parser.ImageParser;
 import com.aexp.parser.ParserResponse;
 import com.aexp.parser.ParserUtil;
 import com.aexp.vat.VATRate;
-import com.aexp.vat.VATValidator;
+import com.aexp.vat.VATResponse;
 import com.couchbase.client.java.document.JsonDocument;
 import com.couchbase.client.java.document.json.JsonObject;
 import com.google.protobuf.ByteString;
@@ -47,8 +47,8 @@ public class VATRestService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		VATRate.getVatRate("GB");
-		VATValidator.getVatResponse("GB986366462");
+		
+		VATResponse rate = VATRate.getVatRate("GB");
 		return response;
 
 	}
